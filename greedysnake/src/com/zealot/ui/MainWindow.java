@@ -19,6 +19,11 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import java.awt.Font;
 import javax.swing.JLabel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.concurrent.SynchronousQueue;
+import javax.swing.event.MenuKeyListener;
+import javax.swing.event.MenuKeyEvent;
 
 public class MainWindow {
 
@@ -75,6 +80,14 @@ public class MainWindow {
 		menuItem.setFont(new Font("新宋体", Font.PLAIN, 12));
 		menu.add(menuItem);
 		launchSnake();
+		
+		menuItem.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				replay();
+			}
+		});
+		
 		frame.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
@@ -179,7 +192,7 @@ public class MainWindow {
 			}
 			fruits.drawFruit(g, this.getX(), this.getY(), gridSize);
 			snake.drawSnake(g, this.getX(), this.getY(), gridSize);
-			g.setColor(Color.CYAN);
+			g.setColor(Color.YELLOW);
 			g.setFont(new Font("新宋体", Font.BOLD, 15));
 			g.drawString("当前得分："+snake.getCurrScore(), 10, 20);
 			g.drawString("当前长度："+snake.getSnakeHead().size(), 10, 40);
