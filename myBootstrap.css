@@ -1,0 +1,281 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+/*
+按钮初始样式,
+1.没有外边距
+2.内容超出显示(后面按钮可能会设置成block，并且有宽度)
+3.鼠标放在上面时显示为手指
+4.是inline-block的
+5.字体为14
+6.字体粗细正常
+7.行高为1.4倍
+8.内容肯定水平和垂直居中
+9.内容不换行
+10.边框透明
+11.圆角边框
+鼠标放在按钮上时没有变化
+按钮被点击时，轮廓消失，内部出现阴影
+*/
+button,
+input {
+	margin: 0;
+	font: inherit;
+	color: inherit;
+}
+button {
+	overflow: visible;
+}
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+	cursor: pointer;
+}
+.btn {
+	display: inline-block;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: normal;
+	padding: 6px 12px;
+	line-height: 1.4;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.btn:active,
+.btn.active {
+	outline: 0;
+	-webkit-box-shadow: inset 0 3px 5px rgba(0,0,0, .125);
+	box-shadow: inset 0 3px 5px rgba(0,0,0, .125);
+}
+
+/*
+default按钮
+白色背景，边框灰色，
+被点击时背景颜色加灰，边框颜色加灰
+鼠标放在按钮上时，背景加灰
+
+按钮颜色变化过程为：
+普通 -> hover -> active -> focus 越来越深
+*/
+.btn-default {
+	color: #333;
+	background-color: #fff;
+	border-color: #ccc;
+}
+.btn-default:hover {
+	background-color: #e6e6e6;
+	border-color: #adadad;
+}
+.btn-default:active,
+.btn-default.active {
+	background-color: #e6e6e6;
+	border-color: #adadad;
+}
+.btn-default:focus,
+.btn-default.focus {
+	background-color: #e6e6e6;
+	border-color: #8c8c8c;
+}
+.btn-default:active:focus,
+.btn-default.active.focus {
+	background-color: #d4d4d4;
+	border-color: #8c8c8c;
+}
+
+/*
+深蓝色按钮
+*/
+.btn-primary {
+	color: #fff;
+	background-color: #337ab7;
+	border-color: #2e6da4;
+}
+
+.btn-primary:hover {
+	background-color: #286090;
+	border-color: #204d74;
+}
+
+.btn-primary:active,
+.btn-primary.active {
+  	background-color: #286090;
+ 	border-color: #204d74;
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+	background-color: #286090;
+  	border-color: #122b40;
+}
+.btn-primary:active:focus,
+.btn-primary.active.focus {
+	background-color: #204d74;
+	border-color: #122b40;
+}
+
+/* 
+绿色按钮
+ */
+.btn-success {
+	color: #fff;
+	background-color: #5cb85c;
+	border-color: #4cae4c;
+}
+
+.btn-success:hover {
+	background-color: #449d44;
+	border-color: #398439;
+}
+
+.btn-success:active,
+.btn-success.active {
+  	background-color: #449d44;
+ 	border-color: #398439;
+}
+
+.btn-success:focus,
+.btn-success.focus {
+	background-color: #449d44;
+  	border-color: #255625;
+}
+.btn-success:active:focus,
+.btn-success.active.focus {
+	background-color: #398439;
+	border-color: #255625;
+}
+
+/* 
+天蓝色按钮
+ */
+ .btn-info {
+	color: #fff;
+	background-color: #5bc0de;
+	border-color: #46b8da;
+}
+
+.btn-info:hover {
+	background-color: #31b0d5;
+	border-color: #1b6d85;
+}
+
+.btn-info:active,
+.btn-info.active {
+  	background-color: #449d44;
+ 	border-color: #398439;
+}
+
+.btn-info:focus,
+.btn-info.focus {
+	background-color: #31b0d5;
+  	border-color: #1b6d85;
+}
+.btn-info:active:focus,
+.btn-info.active.focus {
+	background-color: #269abc;
+	border-color: #1b6d85;
+}
+
+/* 
+橙色按钮
+ */
+ .btn-warning {
+	color: #fff;
+	background-color: #f0ad4e;
+	border-color: #eea236;
+}
+
+.btn-warning:hover {
+	background-color: #ec971f;
+	border-color: #d58512;
+}
+
+.btn-warning:active,
+.btn-warning.active {
+  	background-color: #ec971f;
+ 	border-color: #d58512;
+}
+
+.btn-warning:focus,
+.btn-warning.focus {
+	background-color: #ec971f;
+  	border-color: #d58512;
+}
+.btn-warning:active:focus,
+.btn-warning.active.focus {
+	background-color: #d58512;
+	border-color: #985f0d;
+}
+
+/* 
+红色按钮
+ */
+ .btn-danger {
+	color: #fff;
+	background-color: #d9534f;
+	border-color: #d43f3a;
+}
+
+.btn-danger:hover {
+	background-color: #c9302c;
+	border-color: #ac2925;
+}
+
+.btn-danger:active,
+.btn-danger.active {
+  	background-color: #c9302c;
+ 	border-color: #ac2925;
+}
+
+.btn-danger:focus,
+.btn-danger.focus {
+	background-color: #c9302c;
+  	border-color: #761c19;
+}
+.btn-danger:active:focus,
+.btn-danger.active.focus {
+	background-color: #ac2925;
+	border-color: #761c19;
+}
+
+/* 
+链接样子的按钮
+蓝色的字，没有边框，背景透明
+hover的时候字颜色加深，字带下划线
+ */
+.btn-link{
+ 	font-weight: normal;
+	color: #337ab7;
+	border-radius: 0;
+}
+.btn-link,
+.btn-link:active,
+.btn-link.active {
+	background-color: transparent;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+.btn-link,
+.btn-link:hover,
+.btn-link:focus,
+.btn-link:active {
+  border-color: transparent;
+}
+.btn-link:hover,
+.btn-link:focus {
+	color: #23527c;
+	text-decoration: underline;
+	background-color: transparent;
+}
+
