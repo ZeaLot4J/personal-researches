@@ -59,7 +59,15 @@ input[type="reset"] {
 	-webkit-box-shadow: inset 0 3px 5px rgba(0,0,0, .125);
 	box-shadow: inset 0 3px 5px rgba(0,0,0, .125);
 }
-
+/* 禁用按钮的基本样式 未完成，为何不起作用？？？？？？*/
+.btn.disabled,
+.btn[disabled] {
+	cursor: not-allowed; /* 禁止图形 */
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	filter: alpha(opacity=65);
+	opacity: .65;
+}
 /*
 default按钮
 白色背景，边框灰色，
@@ -93,6 +101,16 @@ default按钮
 	background-color: #d4d4d4;
 	border-color: #8c8c8c;
 }
+.btn-default.disabled:hover,
+.btn-default[disabled]:hover,
+.btn-default.disabled:focus,
+.btn-default.[disabled]:focus,
+.btn-default.disabled.focus,
+.btn-default.[disabled].focus {
+	background-color: #fff;
+	border-color: #ccc;
+}
+
 
 /*
 深蓝色按钮
@@ -125,6 +143,15 @@ default按钮
 	border-color: #122b40;
 }
 
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+.btn-primary.disabled:focus,
+.btn-primary.[disabled]:focus,
+.btn-primary.disabled.focus,
+.btn-primary.[disabled].focus {
+	background-color: #fff;
+	border-color: #000;
+}
 /* 
 绿色按钮
  */
@@ -190,7 +217,7 @@ default按钮
 /* 
 橙色按钮
  */
- .btn-warning {
+.btn-warning {
 	color: #fff;
 	background-color: #f0ad4e;
 	border-color: #eea236;
@@ -221,7 +248,7 @@ default按钮
 /* 
 红色按钮
  */
- .btn-danger {
+.btn-danger {
 	color: #fff;
 	background-color: #d9534f;
 	border-color: #d43f3a;
@@ -279,3 +306,40 @@ hover的时候字颜色加深，字带下划线
 	background-color: transparent;
 }
 
+/* 
+改变按钮大小，font-size更大，内边距更大，但是行高不需要变大，
+因为行高是根据自身的位数
+ */
+.btn-lg {
+	font-size: 18px;
+	border-radius: 6px;
+	line-height: 1.3333333;
+	padding: 10px 16px;
+}
+/* 
+normal :
+font-size: 14;
+ */
+.btn-sm {
+	font-size: 12px;
+	line-height: 1.5;
+	border-radius: 3px;
+	padding: 5px 10px;
+}
+.btn-xs {
+	font-size: 12px;
+	line-height: 1.5;
+	border-radius: 3px;
+	padding: 1px 5px;
+}
+
+.btn-block {
+	display: block;
+	width: 100%;
+}
+/*
+上下相邻的块状button相距5px 
+ */
+.btn-block + .btn-block {
+	margin-top: 5px;
+}
