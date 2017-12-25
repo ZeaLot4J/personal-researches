@@ -38,6 +38,11 @@ input[type="submit"],
 input[type="reset"] {
 	cursor: pointer;
 }
+/*
+transition: all 200ms ease-in-out;
+可以产生很棒的效果 
+*/
+
 .btn {
 	display: inline-block;
 	margin-bottom: 0;
@@ -51,6 +56,9 @@ input[type="reset"] {
 	border: 1px solid transparent;
 	border-radius: 4px;
 	cursor: pointer;
+	-webkit-transition: all 200ms ease-in-out;
+	-o-transition: all 200ms ease-in-out;
+	transition: all 200ms ease-in-out;
 }
 
 .btn:active,
@@ -351,7 +359,8 @@ hover的时候字颜色加深，字带下划线
 改变按钮大小，font-size更大，内边距更大，但是行高不需要变大，
 因为行高是根据自身的位数
  */
-.btn-lg {
+.btn-lg,
+.btn-group-lg {
 	font-size: 18px;
 	border-radius: 6px;
 	line-height: 1.3333333;
@@ -361,13 +370,15 @@ hover的时候字颜色加深，字带下划线
 normal :
 font-size: 14;
  */
-.btn-sm {
+.btn-sm,
+.btn-group-sm {
 	font-size: 12px;
 	line-height: 1.5;
 	border-radius: 3px;
 	padding: 5px 10px;
 }
-.btn-xs {
+.btn-xs,
+.btn-group-xs {
 	font-size: 12px;
 	line-height: 1.5;
 	border-radius: 3px;
@@ -394,13 +405,15 @@ font-size: 14;
 设置多个inline元素的并排排列时的对齐方式，middle
 为中间对齐
  */
-.btn-group {
+.btn-group,
+.btn-group-vertical {
 	position: relative;
 	display: inline-block;
 	vertical-align: middle; 
 }
 
-.btn-group > .btn {
+.btn-group > .btn,
+.btn-group-vertical > .btn {
 	float: left;  /* 让按钮紧挨在一起 */
 	position: relative;
 }
@@ -449,7 +462,473 @@ font-size: 14;
 }
 
 .btn-group > .btn:hover,
+.btn-group-vertical > .btn:hover,
 .btn-group > .btn:focus,
-.btn-group > .btn:active {
+.btn-group-vertical > .btn:focus,
+.btn-group > .btn:active,
+.btn-group-vertical > .btn:active,
+.btn-group > .btn.active,
+.btn-group-vertical > .btn.active, {
 	z-index: 2;
+}
+
+/* 
+btn-group-vertical下的
+一个按钮单独占一行
+一个组中如果有多个按钮，每个按钮单独占一行
+如果一个组中继续嵌套组，则嵌套组中的按钮仍然保持Inline排列在一行
+ */
+.btn-group-vertical > .btn,
+.btn-group-vertical > .btn-group,
+.btn-group-vertical > .btn-group > .btn {
+	display: block;
+	float: none;
+	width: 100%;	/* 不管一行是个按钮还是一组，还是嵌套，都将div占满，对齐 */
+	max-width: 100%;
+}
+
+
+/*
+FIXME
+*/
+.btn-group-vertical > .btn-group > .btn {
+
+}
+
+/*
+btn-group-vertical下的
+相邻按钮上下挨紧
+按钮和相邻组上下挨紧
+组和相邻按钮上下挨紧
+相邻组之间上下挨紧
+*/
+.btn-group-vertical > .btn + .btn,
+.btn-group-vertical > .btn + .btn-group,
+.btn-group-vertical > .btn-group + .btn,
+.btn-group-vertical > .btn-group + .btn-group {
+	margin-top: -1px;
+	margin-left: 0;
+}
+
+/* 
+夹在中间的按钮没有圆角
+ */
+.btn-group-vertical > .btn:not(:first-child):not(:last-child) {
+	border-radius: 0;
+}
+
+/*
+最上边的按钮有上部分圆角
+*/
+.btn-group-vertical > .btn:first-child:not(:last-child) {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+/*
+最下边的按钮有下部分圆角
+*/
+.btn-group-vertical > .btn:last-child:not(:first-child) {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+/* 下面要注意，vertical下的组的按钮也是一个占一行（上面样式的设置） */
+/* 
+夹在中间的组的所有按钮没有圆角
+ */
+.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn {
+	border-radius: 0;
+}
+/*
+最上边的组中的最后一个按钮没有圆角
+*/
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+/*
+最下边的组中的第一个按钮没有圆角
+*/
+.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+/* 
+.btn-toolbar的作用是能够嵌套btn和btn-group，使其全部向左排列，
+不同的group和btn之间有间隔
+ */
+.btn-toolbar {
+	margin-left: -5px;
+}
+.btn-toolbar .btn,
+.btn-toolbar .btn-group {
+	float: left;
+}
+.btn-toolbar > .btn,
+.btn-toolbar > .btn-group {
+	margin-left: 5px;
+}
+
+
+
+
+
+
+
+
+/*
+
+表格
+严格遵守下面的写法
+<table class="table">
+  <caption>基本的表格布局</caption>
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>城市</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Tanmay</td>
+      <td>Bangalore</td>
+    </tr>
+    <tr>
+      <td>Sachin</td>
+      <td>Mumbai</td>
+    </tr>
+  </tbody>
+  <tfoot>
+	<tr>
+      <td>sum</td>
+      <td>10000$</td>
+    </tr>
+  </tfoot>
+</table>
+caption,thead和tbody将表格划分成三块描述，标题行，主体
+tr表示任意一行，th只能写在thead内，td只写在tbody内
+tfoot可写可不写
+*/
+/*table, tr, th, td {
+	border: 1px solid black;
+}*/
+
+
+table {
+	border-spacing: 0; /* 将表格边框的间隙给去掉 */
+	border-collapse: collapse; /* 多个单元格的边框会叠加，设置此样式去除重叠，边框变得只一层 */
+	background-color: transparent;
+}
+caption {
+	padding-top: 8px;
+	padding-bottom: 8px;
+	color: #777;
+	text-align: left;
+}
+th {
+	text-align: left;
+}
+td,th {
+	padding: 0;
+}
+
+.table {
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 20px;
+}
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+	padding: 8px;
+	line-height: 1.4;
+	vertical-align: top;
+	border-top: 1px solid #ddd;
+}
+
+.table > thead > tr > th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #ddd;
+}
+
+/* 
+去掉标题行的上边框
+*/
+.table > caption + thead > tr:first-child > th,
+.table > colgroup + thead > tr:first-child > th,
+.table > thead:first-child > tr:first-child > th,
+.table > caption + thead > tr:first-child > td,
+.table > colgroup + thead > tr:first-child > td,
+.table > thead:first-child > tr:first-child > td {
+	border-top: 0;
+}
+
+.table > tbody + tbody {
+	border: 2px solid #ddd;
+}
+/* 表中表 */
+.table .table {
+	background-color: #fff;
+}
+
+.table-condensed > thead > tr > th,
+.table-condensed > tbody > tr > th,
+.table-condensed > tfoot > tr > th,
+.table-condensed > thead > tr > td,
+.table-condensed > tbody > tr > td,
+.table-condensed > tfoot > tr > td {
+	padding: 5px;
+}
+/* 表格各种框 */
+.table-bordered,
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > td {
+	border: 1px solid #ddd;
+}
+
+.table-bordered > thead > tr > th,
+.table-bordered > thead > tr > td {
+	border-bottom-width: 2px;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+	background-color: #f9f9f9;
+}
+
+.table-hover > tbody > tr:hover {
+	background-color: #f5f5f5;
+}
+/*
+table状态情景
+active
+*/
+.table > thead > tr > td.active,
+.table > tbody > tr > td.active,
+.table > tfoot > tr > td.active,
+.table > thead > tr > th.active,
+.table > tbody > tr > th.active,
+.table > tfoot > tr > th.active,
+.table > thead > tr.active > td,
+.table > tbody > tr.active > td,
+.table > tfoot > tr.active > td,
+.table > thead > tr.active > th,
+.table > tbody > tr.active > th,
+.table > tfoot > tr.active > th {
+	background-color: #f5f5f5;
+}
+/* 如果active和hover叠加，颜色要更深 */
+.table-hover > tbody > tr > td.active:hover,
+.table-hover > tbody > tr > th.active:hover,
+.table-hover > tbody > tr.active:hover > td,
+.table-hover > tbody > tr:hover > .active,
+.table-hover > tbody > tr.active:hover > th {
+	background-color: #e8e8e8;
+}
+/* success 绿色 */
+.table > thead > tr > td.success,
+.table > tbody > tr > td.success,
+.table > tfoot > tr > td.success,
+.table > thead > tr > th.success,
+.table > tbody > tr > th.success,
+.table > tfoot > tr > th.success,
+.table > thead > tr.success > td,
+.table > tbody > tr.success > td,
+.table > tfoot > tr.success > td,
+.table > thead > tr.success > th,
+.table > tbody > tr.success > th,
+.table > tfoot > tr.success > th {
+	background-color: #dff0d8;
+}
+.table-hover > tbody > tr > td.success:hover,
+.table-hover > tbody > tr > th.success:hover,
+.table-hover > tbody > tr.success:hover > td,
+.table-hover > tbody > tr:hover > .success,
+.table-hover > tbody > tr.success:hover > th {
+	background-color: #d0e9c6;
+}
+
+/* info 天蓝色 */
+.table > thead > tr > td.info,
+.table > tbody > tr > td.info,
+.table > tfoot > tr > td.info,
+.table > thead > tr > th.info,
+.table > tbody > tr > th.info,
+.table > tfoot > tr > th.info,
+.table > thead > tr.info > td,
+.table > tbody > tr.info > td,
+.table > tfoot > tr.info > td,
+.table > thead > tr.info > th,
+.table > tbody > tr.info > th,
+.table > tfoot > tr.info > th {
+	background-color: #d9edf7;
+}
+.table-hover > tbody > tr > td.info:hover,
+.table-hover > tbody > tr > th.info:hover,
+.table-hover > tbody > tr.info:hover > td,
+.table-hover > tbody > tr:hover > .info,
+.table-hover > tbody > tr.info:hover > th {
+	background-color: #c4e3f3;
+}
+/* warning 橙色 */
+
+.table > thead > tr > td.warning,
+.table > tbody > tr > td.warning,
+.table > tfoot > tr > td.warning,
+.table > thead > tr > th.warning,
+.table > tbody > tr > th.warning,
+.table > tfoot > tr > th.warning,
+.table > thead > tr.warning > td,
+.table > tbody > tr.warning > td,
+.table > tfoot > tr.warning > td,
+.table > thead > tr.warning > th,
+.table > tbody > tr.warning > th,
+.table > tfoot > tr.warning > th {
+	background-color: #fcf8e3;
+}
+.table-hover > tbody > tr > td.warning:hover,
+.table-hover > tbody > tr > th.warning:hover,
+.table-hover > tbody > tr.warning:hover > td,
+.table-hover > tbody > tr:hover > .warning,
+.table-hover > tbody > tr.warning:hover > th {
+	background-color: #faf2cc;
+}
+/* danger 红色 */
+
+.table > thead > tr > td.danger,
+.table > tbody > tr > td.danger,
+.table > tfoot > tr > td.danger,
+.table > thead > tr > th.danger,
+.table > tbody > tr > th.danger,
+.table > tfoot > tr > th.danger,
+.table > thead > tr.danger > td,
+.table > tbody > tr.danger > td,
+.table > tfoot > tr.danger > td,
+.table > thead > tr.danger > th,
+.table > tbody > tr.danger > th,
+.table > tfoot > tr.danger > th {
+	background-color: #f2dede;
+}
+.table-hover > tbody > tr > td.danger:hover,
+.table-hover > tbody > tr > th.danger:hover,
+.table-hover > tbody > tr.danger:hover > td,
+.table-hover > tbody > tr:hover > .danger,
+.table-hover > tbody > tr.danger:hover > th {
+	background-color: #ebcccc;
+}
+
+/* 
+说一下overflow的各种选项，
+visible为溢出时在浏览器视口显示滚动条，可以拖动滚动条查看溢出内容
+hidden为溢出时浏览器视口不会出现滚动条，无法查看溢出内容，即被截断了
+scroll为不管溢出与否都在作用元素上出现滚动条的框架，溢出时才出现滚动条
+auto由浏览器决定，ff和chrome为只有溢出时才会在作用元素上出现滚动条
+ */
+.table-responsive {
+	min-height: .01%;
+	overflow-x: auto; /* 水平方向上如果溢出则出现滚动条 */
+}
+@media screen and (max-width: 767px) {
+  .table-responsive {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-y: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #ddd;
+  }
+  .table-responsive > .table {
+    margin-bottom: 0;
+  }
+  .table-responsive > .table > thead > tr > th,
+  .table-responsive > .table > tbody > tr > th,
+  .table-responsive > .table > tfoot > tr > th,
+  .table-responsive > .table > thead > tr > td,
+  .table-responsive > .table > tbody > tr > td,
+  .table-responsive > .table > tfoot > tr > td {
+    white-space: nowrap;
+  }
+  .table-responsive > .table-bordered {
+    border: 0;
+  }
+  .table-responsive > .table-bordered > thead > tr > th:first-child,
+  .table-responsive > .table-bordered > tbody > tr > th:first-child,
+  .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+  .table-responsive > .table-bordered > thead > tr > td:first-child,
+  .table-responsive > .table-bordered > tbody > tr > td:first-child,
+  .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+    border-left: 0;
+  }
+  .table-responsive > .table-bordered > thead > tr > th:last-child,
+  .table-responsive > .table-bordered > tbody > tr > th:last-child,
+  .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+  .table-responsive > .table-bordered > thead > tr > td:last-child,
+  .table-responsive > .table-bordered > tbody > tr > td:last-child,
+  .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+    border-right: 0;
+  }
+  .table-responsive > .table-bordered > tbody > tr:last-child > th,
+  .table-responsive > .table-bordered > tfoot > tr:last-child > th,
+  .table-responsive > .table-bordered > tbody > tr:last-child > td,
+  .table-responsive > .table-bordered > tfoot > tr:last-child > td {
+    border-bottom: 0;
+  }
+}
+
+
+.close {
+	float: right;
+	font-size: 21px;
+	font-weight: bold;
+	line-height: 1;
+	color: #000;
+	text-shadow: 0 1px 0 #fff;
+	filter: alpha(opacity=20);
+	opacity: .2;
+}
+
+.close:hover,
+.close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+	opacity: .5;
+}
+
+button.close {
+	-webkit-appearance: none;
+	padding: 0;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+}
+
+.caret {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	margin-left: 2px;
+	vertical-align: middle;
+	border-top: 4px dashed;
+	/*border-top: 4px solid \9;*/
+	border-right: 4px solid transparent;
+	border-left: 4px solid transparent;
+}
+
+.btn .caret {
+	margin-left: 0;
+}
+
+.btn-lg .caret {
+	border-width: 5px 5px 0;
+	border-bottom-width: 0;
 }
