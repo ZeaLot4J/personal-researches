@@ -1,45 +1,64 @@
 * {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-	margin: 0;
+  margin: 0;
 }
-
+a {
+  background-color: transparent;
+}
+a:hover {
+  outline: 0;
+}
+a {
+  color: #337ab7;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: #23527c;
+  text-decoration: underline;
+}
+a:focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
 .container {
-	padding-left: 15px;
-	padding-right: 15px;
-	margin-left: auto;
-	margin-right: auto;
-	overflow: hidden;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
 }
 @media (min-width: 768px) {
-	.container {
-		width: 750px;
-	}
+  .container {
+    width: 750px;
+  }
 }
 @media (min-width: 992px) {
-	.container {
-		width: 970px;
-	}
+  .container {
+    width: 970px;
+  }
 }
 @media (min-width: 1200px) {
-	.container {
-		width: 1170px;
-	}
+  .container {
+    width: 1170px;
+  }
 }
+/* container和container-fluid的区别在于前者在各个屏幕宽度指定了具体的宽度
+后者一起是100%的宽度 */
 .container-fluid {
-	padding-left: 15px;
-	padding-right: 15px;
-	margin-left: auto;
-	margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
 }
 /* row的作用就是两端补15像素 */
 .row {
-	margin-left: -15px;
-	margin-right: -15px;
+  margin-left: -15px;
+  margin-right: -15px;
 }
 /* 网格都是左浮动 */
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, 
@@ -54,13 +73,13 @@ body {
 .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, 
 .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, 
 .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
-	position: relative;
-	min-height: 1px;
-	padding-left: 15px;
-	padding-right: 15px;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 /* 往左拉，原理是相对移动
-	 往右偏，原理是设置左边距，看情况使用
+   往右偏，原理是设置左边距，看情况使用
  */
 .col-xs-12 {
   width: 100%;
@@ -532,10 +551,10 @@ body {
   }
 }
 @media (min-width: 1200px) {
-	.col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
-		float: left; /* 小于1200px会垂直堆叠 */
-	}
-	.col-lg-12 {
+  .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+    float: left; /* 小于1200px会垂直堆叠 */
+  }
+  .col-lg-12 {
     width: 100%;
   }
   .col-lg-11 {
@@ -669,18 +688,18 @@ body {
 */
 button,
 input {
-	margin: 0;
-	font: inherit;
-	color: inherit;
+  margin: 0;
+  font: inherit;
+  color: inherit;
 }
 button {
-	overflow: visible;
+  overflow: visible;
 }
 button,
 input[type="button"],
 input[type="submit"],
 input[type="reset"] {
-	cursor: pointer;
+  cursor: pointer;
 }
 /*
 transition: all 200ms ease-in-out;
@@ -688,37 +707,37 @@ transition: all 200ms ease-in-out;
 */
 
 .btn {
-	display: inline-block;
-	margin-bottom: 0;
-	font-size: 14px;
-	font-weight: normal;
-	padding: 6px 12px;
-	line-height: 1.4;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: middle;
-	border: 1px solid transparent;
-	border-radius: 4px;
-	cursor: pointer;
-	-webkit-transition: all 200ms ease-in-out;
-	-o-transition: all 200ms ease-in-out;
-	transition: all 200ms ease-in-out;
+  display: inline-block;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 6px 12px;
+  line-height: 1.4;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
 }
 
 .btn:active,
 .btn.active {
-	outline: 0;
-	-webkit-box-shadow: inset 0 3px 5px rgba(0,0,0, .125);
-	box-shadow: inset 0 3px 5px rgba(0,0,0, .125);
+  outline: 0;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0, .125);
+  box-shadow: inset 0 3px 5px rgba(0,0,0, .125);
 }
 /* 禁用按钮的基本样式 */
 .btn.disabled,
 .btn[disabled] {
-	cursor: not-allowed; /* 禁止图形 */
-	-webkit-box-shadow: none;
-	box-shadow: none;
-	filter: alpha(opacity=65);
-	opacity: .65;
+  cursor: not-allowed; /* 禁止图形 */
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  filter: alpha(opacity=65);
+  opacity: .65;
 }
 /*
 default按钮
@@ -730,28 +749,28 @@ default按钮
 普通 -> hover -> active -> focus 越来越深
 */
 .btn-default {
-	color: #333;
-	background-color: #fff;
-	border-color: #ccc;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
 }
 .btn-default:hover {
-	background-color: #e6e6e6;
-	border-color: #adadad;
+  background-color: #e6e6e6;
+  border-color: #adadad;
 }
 .btn-default:active,
 .btn-default.active {
-	background-color: #e6e6e6;
-	border-color: #adadad;
+  background-color: #e6e6e6;
+  border-color: #adadad;
 }
 .btn-default:focus,
 .btn-default.focus {
-	background-color: #e6e6e6;
-	border-color: #8c8c8c;
+  background-color: #e6e6e6;
+  border-color: #8c8c8c;
 }
 .btn-default:active:focus,
 .btn-default.active.focus {
-	background-color: #d4d4d4;
-	border-color: #8c8c8c;
+  background-color: #d4d4d4;
+  border-color: #8c8c8c;
 }
 .btn-default.disabled:hover,
 .btn-default[disabled]:hover,
@@ -759,8 +778,8 @@ default按钮
 .btn-default[disabled]:focus,
 .btn-default.disabled.focus,
 .btn-default[disabled].focus {
-	background-color: #fff;
-	border-color: #ccc;
+  background-color: #fff;
+  border-color: #ccc;
 }
 
 
@@ -768,31 +787,31 @@ default按钮
 深蓝色按钮
 */
 .btn-primary {
-	color: #fff;
-	background-color: #337ab7;
-	border-color: #2e6da4;
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
 }
 
 .btn-primary:hover {
-	background-color: #286090;
-	border-color: #204d74;
+  background-color: #286090;
+  border-color: #204d74;
 }
 
 .btn-primary:active,
 .btn-primary.active {
-  	background-color: #286090;
- 	border-color: #204d74;
+    background-color: #286090;
+  border-color: #204d74;
 }
 
 .btn-primary:focus,
 .btn-primary.focus {
-	background-color: #286090;
-  	border-color: #122b40;
+  background-color: #286090;
+    border-color: #122b40;
 }
 .btn-primary:active:focus,
 .btn-primary.active.focus {
-	background-color: #204d74;
-	border-color: #122b40;
+  background-color: #204d74;
+  border-color: #122b40;
 }
 
 .btn-primary.disabled:hover,
@@ -801,38 +820,38 @@ default按钮
 .btn-primary[disabled]:focus,
 .btn-primary.disabled.focus,
 .btn-primary[disabled].focus {
-	background-color: #337ab7;
-	border-color: #2e6da4;
+  background-color: #337ab7;
+  border-color: #2e6da4;
 }
 /* 
 绿色按钮
  */
 .btn-success {
-	color: #fff;
-	background-color: #5cb85c;
-	border-color: #4cae4c;
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
 }
 
 .btn-success:hover {
-	background-color: #449d44;
-	border-color: #398439;
+  background-color: #449d44;
+  border-color: #398439;
 }
 
 .btn-success:active,
 .btn-success.active {
-  	background-color: #449d44;
- 	border-color: #398439;
+    background-color: #449d44;
+  border-color: #398439;
 }
 
 .btn-success:focus,
 .btn-success.focus {
-	background-color: #449d44;
-  	border-color: #255625;
+  background-color: #449d44;
+    border-color: #255625;
 }
 .btn-success:active:focus,
 .btn-success.active.focus {
-	background-color: #398439;
-	border-color: #255625;
+  background-color: #398439;
+  border-color: #255625;
 }
 .btn-success.disabled:hover,
 .btn-success[disabled]:hover,
@@ -840,39 +859,39 @@ default按钮
 .btn-success[disabled]:focus,
 .btn-success.disabled.focus,
 .btn-success[disabled].focus {
-	background-color: #5cb85c;
-	border-color: #4cae4c;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
 }
 
 /* 
 天蓝色按钮
  */
  .btn-info {
-	color: #fff;
-	background-color: #5bc0de;
-	border-color: #46b8da;
+  color: #fff;
+  background-color: #5bc0de;
+  border-color: #46b8da;
 }
 
 .btn-info:hover {
-	background-color: #31b0d5;
-	border-color: #1b6d85;
+  background-color: #31b0d5;
+  border-color: #1b6d85;
 }
 
 .btn-info:active,
 .btn-info.active {
-  	background-color: #449d44;
- 	border-color: #398439;
+    background-color: #449d44;
+  border-color: #398439;
 }
 
 .btn-info:focus,
 .btn-info.focus {
-	background-color: #31b0d5;
-  	border-color: #1b6d85;
+  background-color: #31b0d5;
+    border-color: #1b6d85;
 }
 .btn-info:active:focus,
 .btn-info.active.focus {
-	background-color: #269abc;
-	border-color: #1b6d85;
+  background-color: #269abc;
+  border-color: #1b6d85;
 }
 .btn-info.disabled:hover,
 .btn-info[disabled]:hover,
@@ -880,39 +899,39 @@ default按钮
 .btn-info[disabled]:focus,
 .btn-info.disabled.focus,
 .btn-info[disabled].focus {
-	background-color: #5bc0de;
-	border-color: #46b8da;
+  background-color: #5bc0de;
+  border-color: #46b8da;
 }
 
 /* 
 橙色按钮
  */
 .btn-warning {
-	color: #fff;
-	background-color: #f0ad4e;
-	border-color: #eea236;
+  color: #fff;
+  background-color: #f0ad4e;
+  border-color: #eea236;
 }
 
 .btn-warning:hover {
-	background-color: #ec971f;
-	border-color: #d58512;
+  background-color: #ec971f;
+  border-color: #d58512;
 }
 
 .btn-warning:active,
 .btn-warning.active {
-  	background-color: #ec971f;
- 	border-color: #d58512;
+    background-color: #ec971f;
+  border-color: #d58512;
 }
 
 .btn-warning:focus,
 .btn-warning.focus {
-	background-color: #ec971f;
-  	border-color: #d58512;
+  background-color: #ec971f;
+    border-color: #d58512;
 }
 .btn-warning:active:focus,
 .btn-warning.active.focus {
-	background-color: #d58512;
-	border-color: #985f0d;
+  background-color: #d58512;
+  border-color: #985f0d;
 }
 .btn-warning.disabled:hover,
 .btn-warning[disabled]:hover,
@@ -920,39 +939,39 @@ default按钮
 .btn-warning[disabled]:focus,
 .btn-warning.disabled.focus,
 .btn-warning[disabled].focus {
-	background-color: #f0ad4e;
-	border-color: #eea236;
+  background-color: #f0ad4e;
+  border-color: #eea236;
 }
 
 /* 
 红色按钮
  */
 .btn-danger {
-	color: #fff;
-	background-color: #d9534f;
-	border-color: #d43f3a;
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
 }
 
 .btn-danger:hover {
-	background-color: #c9302c;
-	border-color: #ac2925;
+  background-color: #c9302c;
+  border-color: #ac2925;
 }
 
 .btn-danger:active,
 .btn-danger.active {
-  	background-color: #c9302c;
- 	border-color: #ac2925;
+    background-color: #c9302c;
+  border-color: #ac2925;
 }
 
 .btn-danger:focus,
 .btn-danger.focus {
-	background-color: #c9302c;
-  	border-color: #761c19;
+  background-color: #c9302c;
+    border-color: #761c19;
 }
 .btn-danger:active:focus,
 .btn-danger.active.focus {
-	background-color: #ac2925;
-	border-color: #761c19;
+  background-color: #ac2925;
+  border-color: #761c19;
 }
 .btn-danger.disabled:hover,
 .btn-danger[disabled]:hover,
@@ -960,8 +979,8 @@ default按钮
 .btn-danger[disabled]:focus,
 .btn-danger.disabled.focus,
 .btn-danger[disabled].focus {
-	background-color: #d9534f;
-	border-color: #d43f3a;
+  background-color: #d9534f;
+  border-color: #d43f3a;
 }
 
 /* 
@@ -970,16 +989,16 @@ default按钮
 hover的时候字颜色加深，字带下划线
  */
 .btn-link{
- 	font-weight: normal;
-	color: #337ab7;
-	border-radius: 0;
+  font-weight: normal;
+  color: #337ab7;
+  border-radius: 0;
 }
 .btn-link,
 .btn-link:active,
 .btn-link.active {
-	background-color: transparent;
-	-webkit-box-shadow: none;
-	box-shadow: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 .btn-link,
 .btn-link:hover,
@@ -989,14 +1008,14 @@ hover的时候字颜色加深，字带下划线
 }
 .btn-link:hover,
 .btn-link:focus {
-	color: #23527c;
-	text-decoration: underline;
-	background-color: transparent;
+  color: #23527c;
+  text-decoration: underline;
+  background-color: transparent;
 }
 .btn-link[disabled]:hover,
 .btn-link[disabled]:focus {
-	color: #777;
-	text-decoration: none;	
+  color: #777;
+  text-decoration: none;  
 }
 
 /* 
@@ -1005,10 +1024,10 @@ hover的时候字颜色加深，字带下划线
  */
 .btn-lg,
 .btn-group-lg {
-	font-size: 18px;
-	border-radius: 6px;
-	line-height: 1.3333333;
-	padding: 10px 16px;
+  font-size: 18px;
+  border-radius: 6px;
+  line-height: 1.3333333;
+  padding: 10px 16px;
 }
 /* 
 normal :
@@ -1016,28 +1035,28 @@ font-size: 14;
  */
 .btn-sm,
 .btn-group-sm {
-	font-size: 12px;
-	line-height: 1.5;
-	border-radius: 3px;
-	padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+  padding: 5px 10px;
 }
 .btn-xs,
 .btn-group-xs {
-	font-size: 12px;
-	line-height: 1.5;
-	border-radius: 3px;
-	padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+  padding: 1px 5px;
 }
 
 .btn-block {
-	display: block;
-	width: 100%;
+  display: block;
+  width: 100%;
 }
 /*
 上下相邻的块状button相距5px 
  */
 .btn-block + .btn-block {
-	margin-top: 5px;
+  margin-top: 5px;
 }
 
 
@@ -1051,25 +1070,25 @@ font-size: 14;
  */
 .btn-group,
 .btn-group-vertical {
-	position: relative;
-	display: inline-block;
-	vertical-align: middle; 
+  position: relative;
+  display: inline-block;
+  vertical-align: middle; 
 }
 
 .btn-group > .btn,
 .btn-group-vertical > .btn {
-	float: left;  /* 让按钮紧挨在一起 */
-	position: relative;
+  float: left;  /* 让按钮紧挨在一起 */
+  position: relative;
 }
 .btn-group > .btn-group {
-	float: left;
+  float: left;
 }
 
 .btn-group .btn + .btn,
 .btn-group .btn + .btn-group,
 .btn-group .btn-group + .btn,
 .btn-group .btn-group + .btn-group {
-	margin-left: -1px; /* 挨紧一些 */
+  margin-left: -1px; /* 挨紧一些 */
 }
 
 /* 
@@ -1079,30 +1098,30 @@ font-size: 14;
  */
 
 .btn-group > .btn:not(:first-child):not(:last-child) {
-	border-radius: 0;
+  border-radius: 0;
 }
 .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
-	border-radius: 0;
+  border-radius: 0;
 }
 
 .btn-group > .btn:first-child {
-	margin-left: 0;
+  margin-left: 0;
 }
 .btn-group > .btn:first-child:not(:last-child) {
-	border-top-right-radius: 0;
-	border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 .btn-group > .btn:last-child:not(:first-child) {
-	border-top-left-radius: 0;
-	border-bottom-left-radius: 0;	
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0; 
 }
 .btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child {
-	border-top-right-radius: 0;
-	border-bottom-right-radius: 0;	
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;  
 }
 .btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child {
-	border-top-left-radius: 0;
-	border-bottom-left-radius: 0;	
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0; 
 }
 
 .btn-group > .btn:hover,
@@ -1113,7 +1132,7 @@ font-size: 14;
 .btn-group-vertical > .btn:active,
 .btn-group > .btn.active,
 .btn-group-vertical > .btn.active, {
-	z-index: 2;
+  z-index: 2;
 }
 
 /* 
@@ -1125,10 +1144,10 @@ btn-group-vertical下的
 .btn-group-vertical > .btn,
 .btn-group-vertical > .btn-group,
 .btn-group-vertical > .btn-group > .btn {
-	display: block;
-	float: none;
-	width: 100%;	/* 不管一行是个按钮还是一组，还是嵌套，都将div占满，对齐 */
-	max-width: 100%;
+  display: block;
+  float: none;
+  width: 100%;  /* 不管一行是个按钮还是一组，还是嵌套，都将div占满，对齐 */
+  max-width: 100%;
 }
 
 
@@ -1150,55 +1169,55 @@ btn-group-vertical下的
 .btn-group-vertical > .btn + .btn-group,
 .btn-group-vertical > .btn-group + .btn,
 .btn-group-vertical > .btn-group + .btn-group {
-	margin-top: -1px;
-	margin-left: 0;
+  margin-top: -1px;
+  margin-left: 0;
 }
 
 /* 
 夹在中间的按钮没有圆角
  */
 .btn-group-vertical > .btn:not(:first-child):not(:last-child) {
-	border-radius: 0;
+  border-radius: 0;
 }
 
 /*
 最上边的按钮有上部分圆角
 */
 .btn-group-vertical > .btn:first-child:not(:last-child) {
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
-	border-bottom-left-radius: 0;
-	border-bottom-right-radius: 0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 /*
 最下边的按钮有下部分圆角
 */
 .btn-group-vertical > .btn:last-child:not(:first-child) {
-	border-top-left-radius: 0;
-	border-top-right-radius: 0;
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 /* 下面要注意，vertical下的组的按钮也是一个占一行（上面样式的设置） */
 /* 
 夹在中间的组的所有按钮没有圆角
  */
 .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn {
-	border-radius: 0;
+  border-radius: 0;
 }
 /*
 最上边的组中的最后一个按钮没有圆角
 */
 .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child {
-	border-bottom-left-radius: 0;
-	border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 /*
 最下边的组中的第一个按钮没有圆角
 */
 .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child {
-	border-top-left-radius: 0;
-	border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 /* 
@@ -1206,15 +1225,15 @@ btn-group-vertical下的
 不同的group和btn之间有间隔
  */
 .btn-toolbar {
-	margin-left: -5px;
+  margin-left: -5px;
 }
 .btn-toolbar .btn,
 .btn-toolbar .btn-group {
-	float: left;
+  float: left;
 }
 .btn-toolbar > .btn,
 .btn-toolbar > .btn-group {
-	margin-left: 5px;
+  margin-left: 5px;
 }
 
 
@@ -1247,7 +1266,7 @@ btn-group-vertical下的
     </tr>
   </tbody>
   <tfoot>
-	<tr>
+  <tr>
       <td>sum</td>
       <td>10000$</td>
     </tr>
@@ -1258,32 +1277,32 @@ tr表示任意一行，th只能写在thead内，td只写在tbody内
 tfoot可写可不写
 */
 /*table, tr, th, td {
-	border: 1px solid black;
+  border: 1px solid black;
 }*/
 
 
 table {
-	border-spacing: 0; /* 将表格边框的间隙给去掉 */
-	border-collapse: collapse; /* 多个单元格的边框会叠加，设置此样式去除重叠，边框变得只一层 */
-	background-color: transparent;
+  border-spacing: 0; /* 将表格边框的间隙给去掉 */
+  border-collapse: collapse; /* 多个单元格的边框会叠加，设置此样式去除重叠，边框变得只一层 */
+  background-color: transparent;
 }
 caption {
-	padding-top: 8px;
-	padding-bottom: 8px;
-	color: #777;
-	text-align: left;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #777;
+  text-align: left;
 }
 th {
-	text-align: left;
+  text-align: left;
 }
 td,th {
-	padding: 0;
+  padding: 0;
 }
 
 .table {
-	width: 100%;
-	max-width: 100%;
-	margin-bottom: 20px;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,
@@ -1291,15 +1310,15 @@ td,th {
 .table > thead > tr > td,
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
-	padding: 8px;
-	line-height: 1.4;
-	vertical-align: top;
-	border-top: 1px solid #ddd;
+  padding: 8px;
+  line-height: 1.4;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
 }
 
 .table > thead > tr > th {
-	vertical-align: bottom;
-	border-bottom: 2px solid #ddd;
+  vertical-align: bottom;
+  border-bottom: 2px solid #ddd;
 }
 
 /* 
@@ -1311,15 +1330,15 @@ td,th {
 .table > caption + thead > tr:first-child > td,
 .table > colgroup + thead > tr:first-child > td,
 .table > thead:first-child > tr:first-child > td {
-	border-top: 0;
+  border-top: 0;
 }
 
 .table > tbody + tbody {
-	border: 2px solid #ddd;
+  border: 2px solid #ddd;
 }
 /* 表中表 */
 .table .table {
-	background-color: #fff;
+  background-color: #fff;
 }
 
 .table-condensed > thead > tr > th,
@@ -1328,7 +1347,7 @@ td,th {
 .table-condensed > thead > tr > td,
 .table-condensed > tbody > tr > td,
 .table-condensed > tfoot > tr > td {
-	padding: 5px;
+  padding: 5px;
 }
 /* 表格各种框 */
 .table-bordered,
@@ -1338,20 +1357,20 @@ td,th {
 .table-bordered > thead > tr > td,
 .table-bordered > tbody > tr > td,
 .table-bordered > tfoot > tr > td {
-	border: 1px solid #ddd;
+  border: 1px solid #ddd;
 }
 
 .table-bordered > thead > tr > th,
 .table-bordered > thead > tr > td {
-	border-bottom-width: 2px;
+  border-bottom-width: 2px;
 }
 
 .table-striped > tbody > tr:nth-of-type(odd) {
-	background-color: #f9f9f9;
+  background-color: #f9f9f9;
 }
 
 .table-hover > tbody > tr:hover {
-	background-color: #f5f5f5;
+  background-color: #f5f5f5;
 }
 /*
 table状态情景
@@ -1369,7 +1388,7 @@ active
 .table > thead > tr.active > th,
 .table > tbody > tr.active > th,
 .table > tfoot > tr.active > th {
-	background-color: #f5f5f5;
+  background-color: #f5f5f5;
 }
 /* 如果active和hover叠加，颜色要更深 */
 .table-hover > tbody > tr > td.active:hover,
@@ -1377,7 +1396,7 @@ active
 .table-hover > tbody > tr.active:hover > td,
 .table-hover > tbody > tr:hover > .active,
 .table-hover > tbody > tr.active:hover > th {
-	background-color: #e8e8e8;
+  background-color: #e8e8e8;
 }
 /* success 绿色 */
 .table > thead > tr > td.success,
@@ -1392,14 +1411,14 @@ active
 .table > thead > tr.success > th,
 .table > tbody > tr.success > th,
 .table > tfoot > tr.success > th {
-	background-color: #dff0d8;
+  background-color: #dff0d8;
 }
 .table-hover > tbody > tr > td.success:hover,
 .table-hover > tbody > tr > th.success:hover,
 .table-hover > tbody > tr.success:hover > td,
 .table-hover > tbody > tr:hover > .success,
 .table-hover > tbody > tr.success:hover > th {
-	background-color: #d0e9c6;
+  background-color: #d0e9c6;
 }
 
 /* info 天蓝色 */
@@ -1415,14 +1434,14 @@ active
 .table > thead > tr.info > th,
 .table > tbody > tr.info > th,
 .table > tfoot > tr.info > th {
-	background-color: #d9edf7;
+  background-color: #d9edf7;
 }
 .table-hover > tbody > tr > td.info:hover,
 .table-hover > tbody > tr > th.info:hover,
 .table-hover > tbody > tr.info:hover > td,
 .table-hover > tbody > tr:hover > .info,
 .table-hover > tbody > tr.info:hover > th {
-	background-color: #c4e3f3;
+  background-color: #c4e3f3;
 }
 /* warning 橙色 */
 
@@ -1438,14 +1457,14 @@ active
 .table > thead > tr.warning > th,
 .table > tbody > tr.warning > th,
 .table > tfoot > tr.warning > th {
-	background-color: #fcf8e3;
+  background-color: #fcf8e3;
 }
 .table-hover > tbody > tr > td.warning:hover,
 .table-hover > tbody > tr > th.warning:hover,
 .table-hover > tbody > tr.warning:hover > td,
 .table-hover > tbody > tr:hover > .warning,
 .table-hover > tbody > tr.warning:hover > th {
-	background-color: #faf2cc;
+  background-color: #faf2cc;
 }
 /* danger 红色 */
 
@@ -1461,14 +1480,14 @@ active
 .table > thead > tr.danger > th,
 .table > tbody > tr.danger > th,
 .table > tfoot > tr.danger > th {
-	background-color: #f2dede;
+  background-color: #f2dede;
 }
 .table-hover > tbody > tr > td.danger:hover,
 .table-hover > tbody > tr > th.danger:hover,
 .table-hover > tbody > tr.danger:hover > td,
 .table-hover > tbody > tr:hover > .danger,
 .table-hover > tbody > tr.danger:hover > th {
-	background-color: #ebcccc;
+  background-color: #ebcccc;
 }
 
 /* 
@@ -1479,8 +1498,8 @@ scroll为不管溢出与否都在作用元素上出现滚动条的框架，溢�
 auto由浏览器决定，ff和chrome为只有溢出时才会在作用元素上出现滚动条
  */
 .table-responsive {
-	min-height: .01%;
-	overflow-x: auto; /* 水平方向上如果溢出则出现滚动条 */
+  min-height: .01%;
+  overflow-x: auto; /* 水平方向上如果溢出则出现滚动条 */
 }
 @media screen and (max-width: 767px) {
   .table-responsive {
@@ -1530,51 +1549,51 @@ auto由浏览器决定，ff和chrome为只有溢出时才会在作用元素上�
 
 
 .close {
-	float: right;
-	font-size: 21px;
-	font-weight: bold;
-	line-height: 1;
-	color: #000;
-	text-shadow: 0 1px 0 #fff;
-	filter: alpha(opacity=20);
-	opacity: .2;
+  float: right;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  filter: alpha(opacity=20);
+  opacity: .2;
 }
 
 .close:hover,
 .close:focus {
-	color: #000;
-	text-decoration: none;
-	cursor: pointer;
-	opacity: .5;
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: .5;
 }
 
 button.close {
-	-webkit-appearance: none;
-	padding: 0;
-	cursor: pointer;
-	background: transparent;
-	border: 0;
+  -webkit-appearance: none;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
 }
 
 .caret {
-	display: inline-block;
-	width: 0;
-	height: 0;
-	margin-left: 2px;
-	vertical-align: middle;
-	border-top: 4px dashed;
-	/*border-top: 4px solid \9;*/
-	border-right: 4px solid transparent;
-	border-left: 4px solid transparent;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px dashed;
+  /*border-top: 4px solid \9;*/
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
 }
 
 .btn .caret {
-	margin-left: 0;
+  margin-left: 0;
 }
 
 .btn-lg .caret {
-	border-width: 5px 5px 0;
-	border-bottom-width: 0;
+  border-width: 5px 5px 0;
+  border-bottom-width: 0;
 }
 
 
@@ -1582,28 +1601,531 @@ button.close {
 /*
 顶部导航条
 */
+
 .navbar {
-	display: none;
-}
-.navbar {
-	position: relative;
-	min-height: 50px;
-	margin-bottom: 20px;
-	border: 1px solid #000/* transparent */;
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 20px;
+  border: 1px solid #000/* transparent */;
 }
 .container > .navbar-header {
-	margin-right: -15px;
-	margin-left: -15px;
+  margin-right: -15px;
+  margin-left: -15px;
 }
 @media (min-width: 768px) {
-	.navbar {
-		border-radius: 4px;
-	}
-	.navbar-header {
-		float: left;
-	}
-	.container > .navbar-header {
-		margin-right: 0px;
-		margin-left: 0px;
-	}
+  .navbar {
+    border-radius: 4px;
+  }
+  .navbar-header {
+    float: left;
+  }
+  
+}
+
+.container > .navbar-header,
+.container-fluid > .navbar-header {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+@media (min-width: 768px) {
+  .container > .navbar-header,
+  .container-fluid > .navbar-header {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+/* 商标放在a标签上 */
+.navbar-brand {
+  float: left;
+  height: 50px;
+  padding: 15px 15px;
+  font-size: 18px;
+  line-height: 20px;
+}
+.navbar-brand:hover,
+.navbar-brand:focus {
+  text-decoration: none;
+}
+/* 用户自己调整图片大小 */
+.navbar-brand > img {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .navbar > .container .navbar-brand,
+  .navbar > .container-fluid .navbar-brand {
+    margin-left: -15px;
+  }
+}
+
+.navbar-nav {
+  margin: 7.5px -15px;
+}
+.navbar-nav > li > a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 20px;
+}
+
+/* 顺便提一下inline-block元素去除间隙的方法，
+间隙主要是元素之间的空白类字符引起的，可以通过将标签写一行，加注释，不闭合标签
+和 font-size: 0来解决; */
+
+/* 面包屑 用在ol 上*/
+.breadcrumb {
+  padding: 8px 15px;
+  margin-bottom: 20px;
+  list-style: none;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.breadcrumb > li {
+  display: inline-block;
+}
+
+/* 对于每一个li的兄弟之前插入一个/ */
+.breadcrumb > li + li:before {
+  padding: 0 5px;
+  color: #ccc;
+  content: "/\00a0";
+}
+
+.breadcrumb > .active {
+  color: #777;
+}
+
+input {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  line-height: normal;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 4px 0 0;
+  margin-top: 1px \9;
+  line-height: normal;
+}
+input[type="file"] {
+  display: block;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+input[type="range"] {
+  display: block;
+  width: 100%;
+}
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+label {
+  display: inline-block;
+  max-width: 100%;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  height: 34px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  background-image: none;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  -webkit-transition: border-color 200ms ease-in-out,
+                      -webkit-box-shadow ease-in-out 200ms;
+  -o-transition: border-color 200ms ease-in-out,
+                      box-shadow ease-in-out 200ms;
+  transition: border-color 200ms ease-in-out,
+                      box-shadow ease-in-out 200ms;
+}
+.form-control:focus {
+  border-color: #66afe9;
+  outline: 0; /* 去除原来的蓝色轮廓 */
+  /* 同时设置向内的阴影和向外的阴影  */
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+.form-control::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+.form-control:-ms-input-placeholder {
+  color: #999;
+}
+.form-control::-webkit-input-placeholder {
+  color: #999;
+}
+textarea.form-control {
+  height: auto;
+}
+
+
+
+/* 用在div上，包裹一个checkbox或radio */
+.radio,
+.checkbox {
+  position: relative; /* 方便内部的radio和checkbox元素定位 */
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.radio label,
+.checkbox label {
+  min-height: 20px;
+  padding-left: 20px;
+  margin-bottom: 0;
+  font-weight: normal;
+  cursor: pointer;
+}
+.checkbox input[type="checkbox"],
+.radio input[type="radio"],
+.checkbox-inline input[type="checkbox"],
+.radio-inline input[type="radio"] {
+  position: absolute;
+  margin-top: 4px \9;
+  margin-left: -20px;
+}
+.radio + .radio,
+.checkbox + .checkbox {
+  margin-top: -5px;
+}
+/* 用在label上，包裹一个checkbox或radio */
+.radio-inline,
+.checkbox-inline {
+  position: relative;
+  display: inline-block;
+  padding-left: 20px;
+  margin-bottom: 0;
+  font-weight: normal;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.radio-inline + .radio-inline,
+.checkbox-inline + .checkbox-inline {
+  margin-top: 0;
+  margin-left: 10px;
+}
+input[type="radio"][disabled],
+input[type="checkbox"][disabled],
+input[type="radio"].disabled,
+input[type="checkbox"].disabled,
+.radio-inline.disabled,
+.checkbox-inline.disabled,
+.radio.disabled label,
+.checkbox.disabled label {
+  cursor: not-allowed;
+}
+
+
+/* 将表单控件和label放入form-group中，可以有 */
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group-sm .form-control {
+
+}
+/* 表单中的静态控件，比如固定的文本，不要用在表单控件上 */
+.form-control-static {
+  min-height: 34px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  margin-bottom: 0;
+}
+
+.form-control-static.input-lg,
+.form-control-static.input-sm {
+  padding-right: 0;
+  padding-left: 0;
+}
+.input-sm {
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+select.input-sm {
+  height: 30px;
+  line-height: 30px;
+}
+textarea.input-sm,
+select[multiple].input-sm {
+  height: auto;
+}
+.form-group-sm .form-control {
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+.form-group-sm select.form-control {
+  height: 30px;
+  line-height: 30px;
+}
+.form-group-sm textarea.form-control,
+.form-group-sm select[multiple].form-control {
+  height: auto;
+}
+.form-group-sm .form-control-static {
+  height: 30px;
+  min-height: 32px;
+  padding: 6px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.input-lg {
+  height: 46px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+}
+select.input-lg {
+  height: 46px;
+  line-height: 46px;
+}
+textarea.input-lg,
+select[multiple].input-lg {
+  height: auto;
+}
+.form-group-lg .form-control {
+  height: 46px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+}
+.form-group-lg select.form-control {
+  height: 46px;
+  line-height: 46px;
+}
+.form-group-lg textarea.form-control,
+.form-group-lg select[multiple].form-control {
+  height: auto;
+}
+.form-group-lg .form-control-static {
+  height: 46px;
+  min-height: 38px;
+  padding: 11px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+}
+.has-feedback {
+  position: relative;
+}
+.has-feedback .form-control {
+  padding-right: 42.5px; /* 右边空出一些空间来放反馈图标 */
+}
+.form-control-feedback {
+  position: absolute;
+  top: 0;
+  right: 0; /* 紧贴右侧 */
+  z-index: 2;
+  display: block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  pointer-events: none;
+}
+.input-lg + .form-control-feedback,
+.input-group-lg + .form-control-feedback,
+.form-group-lg .form-control + .form-control-feedback {
+  width: 46px;
+  height: 46px;
+  line-height: 46px;
+}
+.input-sm + .form-control-feedback,
+.input-group-sm + .form-control-feedback,
+.form-group-sm .form-control + .form-control-feedback {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+}
+.has-success .help-block,
+.has-success .control-label,
+.has-success .radio,
+.has-success .checkbox,
+.has-success .radio-inline,
+.has-success .checkbox-inline,
+.has-success.radio label,
+.has-success.checkbox label,
+.has-success.radio-inline label,
+.has-success.checkbox-inline label {
+  color: #3c763d;
+}
+.has-success .form-control {
+  border-color: #3c763d;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+.has-success .form-control-feedback {
+  color: #3c763d;
+}
+.has-success .form-control:focus {
+  border-color: #2b542c;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168;
+}
+.has-warning .help-block,
+.has-warning .control-label,
+.has-warning .radio,
+.has-warning .checkbox,
+.has-warning .radio-inline,
+.has-warning .checkbox-inline,
+.has-warning.radio label,
+.has-warning.checkbox label,
+.has-warning.radio-inline label,
+.has-warning.checkbox-inline label {
+  color: #8a6d3b;
+}
+.has-warning .form-control {
+  border-color: #8a6d3b;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+.has-warning .form-control:focus {
+  border-color: #66512c;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #c0a16b;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #c0a16b;
+}
+.has-warning .form-control-feedback {
+  color: #8a6d3b;
+}
+.has-error .help-block,
+.has-error .control-label,
+.has-error .radio,
+.has-error .checkbox,
+.has-error .radio-inline,
+.has-error .checkbox-inline,
+.has-error.radio label,
+.has-error.checkbox label,
+.has-error.radio-inline label,
+.has-error.checkbox-inline label {
+  color: #a94442;
+}
+.has-error .form-control {
+  border-color: #a94442;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+.has-error .form-control:focus {
+  border-color: #843534;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+}
+.has-error .form-control-feedback {
+  color: #a94442;
+}
+.has-feedback label ~ .form-control-feedback {
+  top: 25px;
+}
+.help-block {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #737373;
+}
+
+@media (min-width: 768px) {
+  .form-inline .form-group {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+  .form-inline .form-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+  }
+  .form-inline .form-control-static {
+    display: inline-block;
+  }
+  .form-inline .control-label {
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+  .form-inline .radio,
+  .form-inline .checkbox {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+  .form-inline .radio label,
+  .form-inline .checkbox label {
+    padding-left: 0;
+  }
+  .form-inline .radio input[type="radio"],
+  .form-inline .checkbox input[type="checkbox"] {
+    position: relative;
+    margin-left: 0;
+  }
+  .form-inline .has-feedback .form-control-feedback {
+    top: 0;
+  }
+}
+
+/* 水平排列的表单需要配合网格布局才能对齐 */
+.form-horizontal .radio,
+.form-horizontal .checkbox,
+.form-horizontal .radio-inline,
+.form-horizontal .checkbox-inline {
+  padding-top: 7px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.form-horizontal .radio,
+.form-horizontal .checkbox {
+  min-height: 27px;
+}
+
+.form-horizontal .form-group {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+@media (min-width: 768px) {
+  .form-horizontal .control-label {
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: right;  /* 标签右对齐
+                          name: .....
+                      password: .....
+                        */
+  }
+}
+.form-horizontal .has-feedback .form-control-feedback {
+  right: 15px;
+}
+@media (min-width: 768px) {
+  .form-horizontal .form-group-lg .control-label {
+    padding-top: 11px;
+    font-size: 18px;
+  }
+}
+@media (min-width: 768px) {
+  .form-horizontal .form-group-sm .control-label {
+    padding-top: 6px;
+    font-size: 12px;
+  }
 }
