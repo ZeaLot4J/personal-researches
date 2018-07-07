@@ -1,0 +1,15 @@
+javascript: 
+(function(){
+    function darken(node) {
+	node.style.backgroundColor = 'rgba(30, 30, 30, 0.5)';	
+	node.style.color = 'rgb(218, 218, 218)';
+	for(var i = 0, nodes = node.childNodes, len = nodes.length; i < len; i++) {
+	    if(nodes[i].nodeType == 1) darken(nodes[i]);
+	}
+    }
+    darken(document.body);
+    for(var i = 0, links = document.links, len = links.length; i < len; i++) {
+	links[i].style.color = 'rgb(0, 255, 0)';
+    }
+})();
+void 0;
