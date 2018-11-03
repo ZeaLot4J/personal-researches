@@ -1,0 +1,130 @@
+#+STARTUP: hideall
+#+STARTUP: hidestars
+#+PROPERTY: CLOCK_INTO_DRAWER t
+* Notes
+#+CATEGORY notes
+
+x** C-x ESC ESC to redo last complex command			      :emacs:
+  <2018-08-31 Fri 18:48>
+
+
+** isearch-forward(C-s), isearch-forward-word(M-s w), isearch-forward-symbol(M-s .) and isearch-forward-regexp(C-M-s) are powerful searching tools besides swiper(f2) 
+  <2018-08-31 Fri 18:49>
+** recursive-edit and abort-recursive-edit are awesome!		      :emacs:
+  <2018-08-31 Fri 18:47>
+** Emacs artist-mode can make you draw any figures with characters using mouse, it's amazing! :emacs:
+  <2018-08-30 Thu 20:17>
+** In windows, how to delete applications completely and thoroughly? :windows:
+   1) cd C:\Program Files\Common Files, delete relevant directories.
+   2) cd C:\Windows\Downloaded Program Files, the same way.
+   3) sysdm.cpl, delete hidden device.
+   4) cd C:\Program Files, delete relevant directories.
+   5) regedit, HKEY_CLASSES_ROOT\Applications.
+   6) HKEY_CURRENT_USER\Software.
+   7) HKEY_LOCAL_MACHINE\SOFTWARE.
+   8) HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services, to delete its registered services.
+   9) HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\eventlog\Application, to delete its logs
+   10) HKEY_CLASSES_ROOT, to delele its relevant items.
+   11) delete its path variables.
+  <2018-08-29 Wed 18:37>
+** Command Pattern						       :java:
+命令模式，命令的发出者与执行者被解耦，但是并没有关注扩展性，如果想增加某些新的命令（注意是某些），仍然得同时修改命令执行者本身，在这一点上，还是破坏了开闭原则;
+但是如果想要新增的命令可以通过已有的命令组合得来，那么仍然是符合开闭的，比如剪切命令可以由复制和删除两个命令组合一下。
+遇到繁多但功能简单的命令，也需要一个个封装成类，这就比较麻烦，但是可以使用匿名内部类来传参，这也体现了，命令模式其实由于是Java语言的语法缺陷导致的模式，在以函数为一等公民的语言中，直接传入个lambda就可以解决。 
+  <2018-08-27 Mon 13:13>
+** use MessageFormat.format() to format string like C#, it's preferable :java:
+   #+BEGIN_SRC java
+int planet = 7;
+String event = "a disturbance in the Force";
+String result = MessageFormat.format("At {1,time} on {1,date}, there was {2} on planet {0,number,integer}.", planet, new Date(), event);
+// no error would occur when the parameters are more or less
+   #+END_SRC 
+   <2018-08-24 Fri 20:13>
+** use String.format(formatString, object...) to format string like C language :java:
+  <2018-08-24 Fri 20:07>
+** Java Regex's search and replacement				       :java:
+   Regex API:
+   #+BEGIN_SRC java
+Pattern.matches(regex, inputString); // the most convenient method to match regex with string
+Pattern p = Pattern.compile(regex); // compile a regex
+p.split(inputString); // same as inputString.split(delimiter)
+p.splitAsStream(inputStream) // return a string stream
+
+Matcher m = p.matcher(inputString);
+// below is the difference among m.matches(), m.find() and m.lookingAt()
+Pattern p = Pattern.compile("cat\\d+");
+Matcher m = p.matcher("cat1 one cat2 two cat3s in the yard cat4");
+m.matches(); // false, it will try to match the entire string
+m.find(); // true, it will try to match the part of the string
+m.group(); // cat2, because m.matches() changed the matching position, use m.reset() to reset the matching pos
+m.find(); // true
+m.group(); // cat3
+m.lookingAt(); // true, always true, because it will try to partly match the string from the start char
+m.group(); // cat1
+m.lookingAt(); // true
+m.group(); // cat1
+m.lookingAt(); // true
+m.group(); // cat1
+#+END_SRC
+   
+   match and replace
+   #+BEGIN_SRC java
+StringBuffer sb = new StringBuffer();
+Pattern p = Pattern.compile(regex);
+Matcher m = p.matcher(sql);
+int i = 0;
+while (m.find() && i < values.length) {
+    m.appendReplacement(sb, "'" + values[i] + "'");
+    i++;
+}
+m.appendTail(sb);
+return sb.toString();
+
+   #+END_SRC
+   <2018-08-24 Fri 16:26>
+** difference between class.getResourceAsStream class.getClassLoader().getResourceAsStream() :java:
+   classLoader().getResourceAsStream() will defaultly load file from root classpath, while class.getResourceAsStream() will load file from current file's relative path.
+   here is a common way to load resouce files: Class.class.getResourceAsStream("/log4j.properties"); // Note, '/' is required.
+  <2018-08-23 Thu 14:23>
+** jaxb annotation						       :java:
+   1. @XmlRootElement: indicate it's a root element of xml
+   2. @XmlElement: indicate it will be included in xml as an element
+   3. @XmlAttribute: indicate it will be included in xml as an attribute
+   4. @XmlTransient: indicate it will be ignored in xml
+   5. @XmlElementWrapper: indicate the collection will be wrapped
+   6. @XmlType(propOrder={field1, field2, filed3 ...}): specify the order of xml's elements
+   --note: don't use @XmlElement, @XmlAttribute, @XmlElementWrapper at the field, which will cause duplicate name errors, instead use them at the setter/getter
+   --@XmlAccessorType(XmlAccessType.FIELD) can make all the non-transient and non-static fields to xml automatically without those annotations, such as @XmlElement above.
+  <2018-08-16 Thu 19:20>
+** JUnit and Hamcrest maven dependency				       :java:
+   #+BEGIN_SRC xml
+<dependency>
+	<groupId>junit</groupId>
+	<artifactId>junit</artifactId>
+	<version>4.12</version>
+	<scope>test</scope>
+	<exclusions>
+		<exclusion>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-core</artifactId>
+		</exclusion>
+	</exclusions>
+</dependency>
+<!-- This will get hamcrest-core automatically -->
+<dependency>
+	<groupId>org.hamcrest</groupId>
+	<artifactId>hamcrest-library</artifactId>
+	<version>1.3</version>
+	<scope>test</scope>
+</dependency>
+   #+END_SRC 
+   <2018-08-09 Thu 12:19>
+** mvn dependency:tree to list the dependency relations		      :maven:
+  <2018-08-09 Thu 12:00>
+** Java BundleResource's usage					       :java:
+#+BEGIN_SRC java
+/resource/config.properties
+BundleResource resource = BundelResource.getBundle("config");
+resource.getString(keyname);
+#+END_SRC
+  <2018-08-08 Wed 17:19>
