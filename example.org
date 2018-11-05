@@ -1,0 +1,155 @@
+#+FILETAGS: :Peter:Boss:Secret:
+
+* abc
+** aafdsf
+** fdsfdsf
+* defg
+** Lord of the Rings
+   My favorite scenes are (in this order)
+   1. The attack of the Rohirrim
+   2. Eowyn's fight with the witch king
+      + this was already my favorite scene in the book
+      + I really like Miranda Otto.
+   3. Peter Jackson being shot by Legolas
+      - on DVD only
+	He makes a really funny face when it happens
+But in the end, no individual scenes matter but the film as a whole.
+Important actors in this film are:
+- Elijah Wood :: He plays Frodo
+- Sean Astin :: He plays Sam, Frodo's friend. I still remember
+him very well from his role as Mikey Walsh in The Goonies
+
+1) [ ] abc
+2) [ ] def
+3) [X] ghi
+
+
+
+** DONE Organize party [0/4]
+  - State "DONE"       from "VERIFY"     [2018-07-27 Fri 14:11] \\
+    change verify to done
+  - State "VERIFY"     from "FEEDBACK"   [2018-07-27 Fri 14:11]
+  - State "FEEDBACK"   from "TODO"       [2018-07-27 Fri 14:11] \\
+    change todo to feedback
+  - [ ] Peter
+  - [ ] 
+  - [ ] call people [0/4]
+    - [ ] 
+    - [ ] Sarah
+    - [ ] Sam
+    - [ ] order food
+  - [ ] think about what music to play
+    - [ ] talk to the neighbors
+
+a. ff 
+b. ff
+
+* TODO FEEDBACK This is a headline
+  - State "TODO"       from "PENDING"    [2018-07-27 Fri 19:11]
+  - State "PENDING"    from "DONE"       [2018-07-27 Fri 19:11] \\
+    ABC
+  - State "DONE"       from "PENDING"    [2018-07-27 Fri 19:10]
+  - State "PENDING"    from "TODO"       [2018-07-27 Fri 19:10] \\
+    abc
+
+
+  Still outside the drawer
+  :DRAWERNAME: 
+  This is inside the drawer.
+  :END:
+  After the drawer.
+
+#+STARTUP: hideblocks
+jffffffff
+#+STARTUP: nohideblocks
+
+
+
+* TODO Log each state with only a time
+  :PROPERTIES:
+  :LOGGING: TODO(!) PENDING(!) DONE(!)
+  :END:      
+* PENDING Only log when switching to WAIT, and when repeating
+  - State "PENDING"    from "DONE"       [2018-07-27 Fri 19:18]
+  - State "PENDING"    from "TODO"       [2018-07-27 Fri 19:18]
+  :PROPERTIES:
+  :LOGGING: PENDING(@) logrepeat
+  :END:      
+* No logging at all
+  :PROPERTIES:
+  :LOGGING: nil
+  :END:
+
+* TODO Blocked until (two) is done
+** DONE one
+** CANCELED two
+   - State "CANCELED"   from "DONE"       [2018-07-27 Fri 19:51]
+
+* Parent
+  :PROPERTIES:
+  :ORDERED: t
+  :END:
+** TODO a
+** BUG b, needs to wait for (a)
+** REPORT c, needs to wait for (a) and (b)
+
+* DONE Parent capturing statistics [100%]
+  - State "DONE"       from "TODO"       [2018-07-27 Fri 20:15]
+  - State "TODO"       from "TODO"       [2018-07-27 Fri 20:15]
+  - State "TODO"       from "TODO"       [2018-07-27 Fri 20:15]
+  - State "TODO"       from "TODO"       [2018-07-27 Fri 20:15]
+  - State "TODO"       from "TODO"       [2018-07-27 Fri 20:15]
+  - State "TODO"       from "TODO"       [2018-07-27 Fri 20:15]
+  - State "TODO"       from "TODO"       [2018-07-27 Fri 20:15]
+  - State "TODO"       from "TODO"       [2018-07-27 Fri 20:15]
+  - State "TODO"       from ""           [2018-07-27 Fri 20:15]
+** DONE item1
+** DONE item2
+** DONE item3
+   
+   
+* Meeting with the French
+** Summary by Frank						       :Boss:
+*** TODO Prepare slides for him					     :Secret:
+
+* Properties
+  :PROPERTIES:
+  :ARCHIVE:  abc
+  :abc:      abc
+  :END:
+
+
+** Meeting in Amsterdam
+   <2004-08-23 Mon>--<2004-08-26 Thu>
+* DONE Gillian comes late for the fifth time
+  SCHEDULED: <2018-07-27 Fri> DEADLINE: <2018-07-27 Fri>
+  - State "DONE"       from "CANCELED"   [2018-07-27 Fri 21:26]
+  - State "CANCELED"   from "REPORT"     [2018-07-27 Fri 21:26]
+  - State "CANCELED"   from "DONE"       [2018-07-27 Fri 21:26]
+  - State "DONE"       from ""           [2018-07-27 Fri 21:25]
+  CLOCK: [2018-07-27 Fri 21:25]--[2018-07-27 Fri 21:25] =>  0:00
+  :PROPERTIES:
+  :Effort:   acb
+  :END:
+  [2006-11-01 Wed]
+<2018-07-27 Fri>
+[2018-07-27 Fri]
+
+#+BEGIN: clocktable :maxlevel 2 :scope subtree
+#+CAPTION: Clock summary at [2018-07-27 Fri 21:18]
+| Headline     | Time   |
+|--------------+--------|
+| *Total time* | *0:00* |
+#+END:
+#+BEGIN: clocktable :maxlevel 2 :scope subtree
+#+CAPTION: Clock summary at [2018-07-27 Fri 21:18]
+| Headline     | Time   |
+|--------------+--------|
+| *Total time* | *0:00* |
+#+END:
+
+* Tasks
+** TODO Learn French for an hour
+   [2018-07-30 Mon]
+   [[file:~/.emacs.d/init.el]]
+

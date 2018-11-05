@@ -1,0 +1,14 @@
+#+STARTUP: showall
+#+STARTUP: hidestars
+#+PROPERTY: CLOCK_INTO_DRAWER t
+#+TAGS: { @office(o) @home(h) @way(w) }
+* Tasks
+#+CATEGORY tasks
+** TODO learn Java nio and Try Jetty <2018-08-09 Thu 10:43>	      :@home:
+
+** PENDING learn French <2018-08-09 Thu 10:50>			      :@home:
+   - State "PENDING"    from "TODO"       [2018-08-21 Tue 13:58]
+** TODO have a knowledge of the three-way algorithm of git <2018-08-10 Fri 12:16> :@home:
+** TODO try jfinal framework and read its source code <2018-08-22 Wed 10:58> :@home:
+
+** TODO read <The Programmer's Ranting> <2018-08-22 Wed 15:36>	      :@home:

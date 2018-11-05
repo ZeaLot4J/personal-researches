@@ -1,0 +1,12 @@
+#+STARTUP: showall
+#+STARTUP: hidestars
+#+PROPERTY: CLOCK_INTO_DRAWER t
+#+TAGS: { @office(o) @home(h) @way(w) }
+* Inbox
+#+CATEGORY inbox
+
+** PENDING try SimpleJDBC <2018-08-22 Wed 11:51>		      :@home:
+   - Note taken on [2018-08-30 Thu 12:47] \\
+     The SimpleJDBC must be used with Spring framework
+   - State "PENDING"    from "TODO"       [2018-08-30 Thu 12:46]
+

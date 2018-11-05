@@ -1,0 +1,22 @@
+#+STARTUP: showall
+#+STARTUP: hidestars
+#+PROPERTY: CLOCK_INTO_DRAWER t
+#+TAGS: { @office(o) @home(h) @way(w) }
+* Finished
+#+CATEGORY finished
+** DONE financial-suite turnover <2018-08-09 Thu 15:06>		    :@office:
+   - State "DONE"       from "TODO"       [2018-08-06 Mon 15:47]
+** DONE solve 4 UAT bugs of Druglist at company <2018-08-06 Mon 11:56> :@office:
+   - Note taken on [2018-08-08 Wed 17:08] \\
+     Zongxiang has helped to complete them.
+   - State "DONE"       from "TODO"       [2018-08-08 Wed 17:08]
+
+** DONE complete the requirement of Drugvendor <2018-08-06 Mon 11:57> :@office:
+   - State "DONE"       from "TODO"       [2018-08-08 Wed 17:09]
+
+** DONE try junit test <2018-08-08 Wed 15:31>			    :@office:
+   - State "DONE"       from "TODO"       [2018-08-08 Wed 18:43]
+** DONE complete page size report <2018-08-15 Wed 10:34>	    :@office:
+   - State "DONE"       from "TODO"       [2018-08-15 Wed 19:15]
+** DONE config ibuffer for emacs <2018-08-21 Tue 14:00>		    :@office:
+   - State "DONE"       from "TODO"       [2018-08-21 Tue 19:59]

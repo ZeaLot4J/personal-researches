@@ -1,0 +1,11 @@
+#+STARTUP: showall
+#+STARTUP: hidestars
+#+PROPERTY: CLOCK_INTO_DRAWER t
+#+TAGS: { @office(o) @home(h) @way(w) }
+* Someday
+#+CATEGORY someday
+** PENDING try to implement a block chain with Java <2018-08-06 Mon 11:54> :@home:
+   - State "PENDING"    from "TODO"       [2018-08-16 Thu 10:25]
+
+** TODO analyze the source code of Martin's Mykins <2018-08-06 Mon 11:55> :@office:
+
