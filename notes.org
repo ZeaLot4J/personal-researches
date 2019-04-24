@@ -4,10 +4,284 @@
 * Notes
 #+CATEGORY notes
 
-x** C-x ESC ESC to redo last complex command			      :emacs:
+** Exception Handling in the lastest SpringMVC 			  :springmvc:
+   1. Use @ResponseStatus annotation
+   2. Throw ResponseStatusException
+   3. Define a class with @ControllerAdvice annotation, then annotate a handle method with @ExceptionHandler, it's a global way
+   4. Use ResponseEntity's builder methods such as ResponseEntity.status(HttpStatus.NOT_FOUND).body(obj) instead of new ResponseEntity()
+  <2019-04-24 周三 23:37>
+** Kmacro's tricks 						      :emacs:
+   f7 can define macro and insert a counter
+   kmacro-set-format title%d, this will generate a title sequence
+  <2019-04-20 周六 23:00>
+** Rectangle is powerful 					      :emacs:
+   C-x SPACE: rectangle mark region
+   C-x r t: replace string into marked rectangle region for each line
+   C-s: I-search will mark starter point and end point automatically
+  <2019-04-20 周六 22:09>
+
+** 4 ways of passing query multiple parameters to sql statement in Mybatis :mybatis:
+   1) #{param1} #{param2} #{arg0} #{arg1}, don't use this problematic way
+   2) @Param, recommend this
+   3) paramMap, recommend
+   4) Java entity, recommend
+   5) actually you can use any name within #{} when there is only one param.
+   for details, see [[https://blog.csdn.net/youanyyou/article/details/79406486]]
+  <2018-12-22 周六 14:55>
+** The mapper.xml and mapper interface 				    :mybatis:
+   In mapper.xml, namespace specify the mapper(Dao) interface qualified name.
+   in <mappers> tag, <mapper resource="the location of mapper xml" /> specify
+   the location of mapper xml, 
+   <mapper class="the qualified name of mapper interface"/> specify the location
+   of mapper interface, which requires the mapper.xml and mapper.java interface
+   must be in the same directory, and the <package name="package name of mapper interface"/>
+   is the same, but it is more powerful since it can auto scan the specified the package.
+   
+   we often do like this below:
+   #+BEGIN_SRC cmd
+note the UserMapper.java and UserMapper.xml's directory structure
++---src
+|   +---main
+|   |   +---java
+|   |   |   \---net
+|   |   |       \---zealot
+|   |   |           \---blog
+|   |   |               +---dao
+|   |   |               +---entity
+|   |   |               |       Blog.java
+|   |   |               |       Comment.java
+|   |   |               |       User.java
+|   |   |               |
+|   |   |               +---mapper
+|   |   |               |       UserMapper.java
+|   |   |               |
+|   |   |               +---servlet
+|   |   |               \---util
+|   |   |                       MybatisUtils.java
+|   |   |
+|   |   +---resources
+|   |   |   |   database.properties
+|   |   |   |   log4j.properties
+|   |   |   |   mybatis-config.xml
+|   |   |   |
+|   |   |   \---net
+|   |   |       \---zealot
+|   |   |           \---blog
+|   |   |               \---mapper
+|   |   |                       UserMapper.xml
+|   |   |
+
+   #+END_SRC
+   <2018-12-22 周六 01:48>
+** varStatus in jstl's forEach tag				       :jstl:
+   <c:forEach varStatus="status" >
+   ${status.index} start with 0
+   ${status.count} start with 1
+   ${status.current} current item
+   ${status.first} is first?
+   ${status.last} is last?
+   </c:forEach>
+   
+  <2018-12-20 周四 01:51>
+** The steps to launch an ActiveJDBC with sql logs		 :activejdbc:
+   1) dependencies
+   #+BEGIN_SRC xml
+<dependency>
+	<groupId>org.javalite</groupId>
+	<artifactId>activejdbc</artifactId>
+	<version>2.2</version>
+</dependency>
+<dependency>
+	<groupId>mysql</groupId>
+	<artifactId>mysql-connector-java</artifactId>
+	<version>5.1.47</version>
+</dependency>
+<dependency>
+	<groupId>junit</groupId>
+	<artifactId>junit</artifactId>
+	<version>4.12</version>
+	<scope>test</scope>
+</dependency>
+<dependency>
+	<groupId>org.javalite</groupId>
+	<artifactId>activejdbc-instrumentation</artifactId>
+	<version>2.2</version>
+	<type>maven-plugin</type>
+</dependency>
+<build>
+	<pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.javalite</groupId>
+				<artifactId>activejdbc-instrumentation</artifactId>
+				<version>2.2</version>
+				<executions>
+					<execution>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>instrument</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</pluginManagement>
+</build>
+   #+END_SRC
+   2) mvn activejdbc-instrumentation:instrument
+   3) add -Dactivejdbc.log within the VM arguments if we want to see the sql log in the console
+   <2018-12-19 周三 01:11>
+** If something wrong about mvn plugin happens, wrap plugins within <pluginManagement> :maven:
+  <2018-12-18 周二 22:24>
+** we cannot concatenate query string after the dispatcher url in Servlet :java:
+   request.getRequestDispatcher("product&action=show").forward(request, response);
+   404 Not Found
+   /${contextPath}/product&action=show
+  <2018-12-16 周日 22:42>
+** getCurrentSession() return a thread local session		  :hibernate:
+  <2018-12-15 周六 17:12>
+** JoinColumn and MappedBy					  :hibernate:
+   [[http://www.cnblogs.com/chiangchou/p/mappedBy.html]]
+  <2018-12-14 周五 01:18>
+** Use persist and merge method only				  :hibernate:
+  <2018-12-13 周四 01:44>
+** id generating strategy					  :hibernate:
+   increment: generated by hibernate in the memory, the maximum of id plus one each time.
+   identity: determined and generated by database.
+   sequence: generated via sequence.
+   native: generating strategy is smartly determined by database.
+  <2018-12-12 周三 21:53>
+** <property name="hibernate.current_session_context_class">thread</property> :hibernate:
+   thread: local transaction
+   jta: global transaction
+  <2018-12-12 周三 21:29>
+** hbm2ddl.auto							  :hibernate:
+   create: drop the table schema first, then create the table.
+   update(most used): create the table schema if not existed, or update the table.
+  <2018-12-12 周三 21:24>
+** principle of Dependency Injection				       :java:
+   service consumer    interface service     service producer    assembler
+   DI is:
+   the service consumer take a dependency on service interface, the service producer implements
+   service interface, the assembler take responsibility to assemble the service into consumer.
+   thus, consumer is not dependent on service directly, assembler will do all the things.
+  <2018-12-11 周二 23:46>
+** HQL CRUD 							  :hibernate:
+   from User where id=:id
+   query.list()
+
+   delete from User where id=:id
+   query.executeUpdate(user);
+
+   update User set name=:name, password=:password where id=:id
+   query.executeUpdate(user);
+
+   query.save(user);
+  <2018-12-11 周二 02:27>
+** a series of getPath method in Servlet api			       :java:
+request.getContextPath(); // project name
+request.getServletPath(); // servlet path name
+
+request.getPathInfo(); // real url - servlet path
+// if servlet-mapping is /dosomething/*, and real path is /dosomething/abc/def
+// then path info is /abc/def, querystring will no be included if any.
+
+request.getRequestURI(); // context path + servlet path
+request.getRequestURL(); // http://localhost:8080/projectname/servletpath
+  <2018-12-09 周日 23:58>
+** When define event function in Component class, use handle = () => {} syntax :react:
+   It's supported by create-react-app though it is experimental up to now, 
+   or you can do this.handle = this.handle.bind(this) in the constructor too.
+  <2018-12-09 周日 15:27>
+** This in arrow function is lexical scoped while dynamic scoped in anonymous function :javascript:
+   use arrow function and class keywords more, please
+   <2018-12-09 周日 14:41>
+** projectile is a nice tool to quick search file name in projects    :emacs:
+   just add an empty .projectile file in the directory throughout which you
+   want to search, then M-x projectile-find-file.
+  <2018-12-09 周日 04:26>
+** How to search file through file name in windows		      :batch:
+   where /r path\ filename
+  <2018-12-09 周日 04:03>
+** How to full-text search in certain directory in windows	      :batch:
+   findstr /n /s "string" path\*
+   find /n "string" path\*
+  <2018-12-09 周日 03:37>
+** How to rename current buffer in Emacs			      :emacs:
+   #+BEGIN_SRC emacs-lisp
+(rename-buffer)
+   #+END_SRC
+   <2018-12-09 周日 02:40>
+** How to launch only one Emacs process when open multiple files in windows :emacs:
+   1. set (server-start) in init.el
+   2. launch emacs using command "path\to\emacsclientw.exe" --no-wait --alternate-editor="path\to\runemacs.exe" "%1"
+      - --alternate-editor: run runemacs.exe when there is no emacs server available
+      - %1: the FILENAME
+  <2018-12-09 周日 02:13>
+** How to add items to the menu list when right clicking in file folders :registry:
+   1. regedit, HKEY_CLASSES_ROOT\*\shell
+   2. right click shell, add a new item named Emacs for instance
+   3. right click Emacs, add a new item named command
+   4. double click the default item, input "D:\emacs-25.3_1-x86_64\bin\runemacs.exe %1"
+  <2018-12-09 周日 01:39>
+** How to run React App in the Tomcat				      :react:
+   1. modify the package.json, add {"homepage": "."}
+   2. npm run build, a directory named build will be created
+   3. copy all the content within the build dir to %CATALINA_HOME%'\webapps\react-app\
+   4. run startup.bat in %CATALINA_HOME%\bin
+   5. access local:host/react-app/index.html
+  <2018-12-09 周日 01:14>
+** Attentions about React					      :react:
+1. Component needs to extend React.Component, it can be define as a function with the argument props if there's only render method，just return JSX in the function body.
+2. Component's local state varibales should be stored in this.state, while the props store some variables from parent component.
+3. The constructor must have a parameter props, super(props) should be called first.
+4. It is necessary to change state with this.setState, immutability is important in React, or React cannot detect the changes of components.
+6. Try best to lift the state to parent components，and receive params from parent components through props.
+e.g.
+#+BEGIN_SRC javascript
+
+function MyComponent(props) {
+  return (
+    // JSX here
+  );
+}
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  
+  func1() {
+
+  }
+  func2() {
+
+  }
+
+  render() {
+    return (
+      // JSX here
+    );
+  }
+}
+#+END_SRC
+<2018-12-08 周六 19:15>
+** Right click with shift pressed, the cmd will be listed in the menu :registry:
+   There comes the issue, how to change win10's default powershell to cmd in the menu?
+   in HKEY_CLASSES_ROOT\Directory\Background\shell\Powershell\command, grant yourself rights,
+   rename the HideBasedOnVelocityId to ShowBasedOnVelocityId, the cmd will appear in the menu
+   , and the powershell is converse.
+   <2018-12-07 周五 23:29>
+** <base href="<%= basePath%>" /> is used to specify the base path for relative url
+   each relative url will be concatenated after the base path
+   #+BEGIN_SRC java
+<%
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/";
+%>
+   #+END_SRC
+   
+   <2018-12-07 周五 02:37>
+** C-x ESC ESC to redo last complex command 			      :emacs:
   <2018-08-31 Fri 18:48>
-
-
 ** isearch-forward(C-s), isearch-forward-word(M-s w), isearch-forward-symbol(M-s .) and isearch-forward-regexp(C-M-s) are powerful searching tools besides swiper(f2) 
   <2018-08-31 Fri 18:49>
 ** recursive-edit and abort-recursive-edit are awesome!		      :emacs:
@@ -27,10 +301,6 @@ x** C-x ESC ESC to redo last complex command			      :emacs:
    10) HKEY_CLASSES_ROOT, to delele its relevant items.
    11) delete its path variables.
   <2018-08-29 Wed 18:37>
-** Command Pattern						       :java:
-命令模式，命令的发出者与执行者被解耦，但是并没有关注扩展性，如果想增加某些新的命令（注意是某些），仍然得同时修改命令执行者本身，在这一点上，还是破坏了开闭原则;
-但是如果想要新增的命令可以通过已有的命令组合得来，那么仍然是符合开闭的，比如剪切命令可以由复制和删除两个命令组合一下。
-遇到繁多但功能简单的命令，也需要一个个封装成类，这就比较麻烦，但是可以使用匿名内部类来传参，这也体现了，命令模式其实由于是Java语言的语法缺陷导致的模式，在以函数为一等公民的语言中，直接传入个lambda就可以解决。 
   <2018-08-27 Mon 13:13>
 ** use MessageFormat.format() to format string like C#, it's preferable :java:
    #+BEGIN_SRC java
